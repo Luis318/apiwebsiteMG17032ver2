@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>web api</title>
+    <meta charset="utf-8" />
+    <LINK REL=StyleSheet HREF="estilo.css" TYPE="text/css" MEDIA=screen>
+    <script src="codigo.js"></script>
+
+</head>
+
+<body>
+    <h1>Guia 61B - Ejemplo web api</h1>
+    <table id="datos" border="1">
+        <tr>
+            <td>Alumno</td>
+            <td>Carnet</td>
+            <td>Grupo</td>
+        </tr>
+        <tr>
+            <td>Mendoza Gonzalez, Luis Alonso</td>
+            <td>MG17032</td>
+            <td>Grupo 3</td>
+        </tr>
+    </table>
+    <div>
+        <form name="agregarProducto" id="agregarProducto">
+            <h2 class="crud-title">Agregar un nuevo producto</h2>
+            <label for="a1">Titulo</label>
+            <input type="text" name="Titulo" id="a1" value="" placeholder="Nombre de producto">
+            <label for="a2">Precio</label>
+            <input type="text" name="Precio" id="a2" value="" placeholder="Precio"><br>
+            <label for="a3">Descricion</label>
+            <input type="text" name="Descripcion" id="a3" value="" placeholder="Descricion"><br>
+            <label for="a4">Imagen</label>
+            <input type="text" name="Imagen" id="a4" value="" placeholder="Imagen"><br>
+            <label for="a5">Categoria</label>
+            <input type="text" name="Categoria" id="a5" value="" placeholder="Categoria"><br>
+            <input type="submit" value="Agregar">
+            <input type="hidden" name="action">
+
+        </form>
+    </div>
+    <p><button onclick="obtenerProductos();this.style.display='none';">Obtener Productos</button></p>
+    <div id="listado" style="display:none;">
+        <form name="filtroprods" id="filtroprods">
+            Seleccione Categorias
+            <input type="checkbox" id="c1" value="c1" checked>Electronicos
+            <input type="checkbox" id="c2" value="c2" checked>Joyería
+            <input type="checkbox" id="c3" value="c3" checked>Ropa Caballero
+            <input type="checkbox" id="c4" value="c4" checked>Ropa Dama
+            <ol>
+                <li>Click en la imagen para Acercamiento</li>
+                <li>Click en precio para ordenar Asc o Desc</li>
+            </ol>
+            <table id="tabla" border="1">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>foto</th>
+                        <th id="price">price</th>
+                        <th>title</th>
+                        <th>description</th>
+                        <th>category</th>
+                        <th>acciones</th>
+                    </tr>
+
+                </thead>
+                <tbody id="tbody"></tbody>
+            </table>
+        </form>
+    </div>
+    <template id="crud-template">
+        <tr>
+            <td class="id"></td>
+            <td class="foto"></td>
+            <td class="price"></td>
+            <td class="title"></td>
+            <td class="description"></td>
+            <td class="category"></td>
+            <td class="accion"></td>
+            <td>
+                <button class="edit">Editar</button>
+                <button class="delete">Eliminar</button>
+            </td>
+        </tr>
+    </template>
+
+</body>
+
+</html>
